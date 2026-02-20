@@ -1,7 +1,7 @@
 # documentation: https://github.com/felipekafuri/bandeira
-# slogan: Lightweight feature flag management tool with embedded SQLite.
+# slogan: Self-hosted feature flag service with SDKs for Go, JS/TS, Python, PHP, Dart, and Elixir.
 # category: development
-# tags: feature-flags,feature-management,go,lightweight
+# tags: feature-flags,feature-management,go,sdk,self-hosted
 # logo: svgs/bandeira.svg
 # port: 8080
 
@@ -12,6 +12,7 @@ services:
       - SERVICE_FQDN_BANDEIRA_8080
       - BANDEIRA_APP_ENVIRONMENT=prod
       - BANDEIRA_APP_ENCRYPTIONKEY=${SERVICE_PASSWORD_64_BANDEIRA}
+      - BANDEIRA_AUTH_ADMINEMAIL=${SERVICE_USER_EMAIL:-admin@bandeira.local}
       - BANDEIRA_AUTH_ADMINPASSWORD=${SERVICE_PASSWORD_BANDEIRA}
     volumes:
       - bandeira-data:/app/dbs
